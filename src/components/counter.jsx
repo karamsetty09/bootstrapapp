@@ -6,8 +6,6 @@ import React, { Component } from 'react';     // use imrc to get this line of co
 class Counter extends Component {       
     state = {
         value: this.props.value
-        
-        
     };
 
     handleIncrement = product => {
