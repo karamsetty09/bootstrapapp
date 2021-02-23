@@ -5,12 +5,12 @@ import React, { Component } from 'react';     // use imrc to get this line of co
 
 class Counter extends Component {       
     state = {
-        value: this.props.value
+        value: 0
     };
 
-    handleIncrement = product => {
+    handleIncrement = () => {
         //this.state.count++;
-        console.log(product);
+        
         this.setState({ value: this.state.value + 1 });
         //console.log("Increment Clicked", this);
     };
@@ -19,6 +19,7 @@ class Counter extends Component {
         
         return (
         <div>
+            
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button 
                 onClick={this.handleIncrement} 
@@ -26,7 +27,9 @@ class Counter extends Component {
             >click for Increment
             
             </button>
-            
+            <button onClick={this.handleDelete} className="btn btn-danger btn-sm m-2">
+                Delete
+            </button>
 
         </div>
         );
