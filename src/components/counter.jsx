@@ -4,10 +4,7 @@ import counters from './counters'
 // use cc to get this below class by extension simple React snippets
 
 class Counter extends Component {       
-    state = {    // state is always local to the component
-        value: this.props.counter.value
-    };
-
+    
     render() { 
         
         return (
@@ -15,7 +12,7 @@ class Counter extends Component {
             
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span> 
             <button 
-                onClick={this.handleIncrement} 
+                onClick={() => this.props.onIncrement(this.props.counter)} 
                 className="btn btn-secondary btn-sm"
             >click for Increment
             
@@ -29,10 +26,7 @@ class Counter extends Component {
         );
     }
 
-    // function module to handle incremet on screen 
-    handleIncrement = () => {
-        this.setState({ value: this.state.value + 1 });        
-    };
+    
 
 
     getconRendering() {
@@ -43,13 +37,13 @@ class Counter extends Component {
     // function module to handle classnames of display.
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += this.state.value === 0 ? "warning" : "primary";
+        classes += this.props.counter.value === 0 ? "warning" : "primary";
         return classes;
     };
 
     // function module to display zero or any value
     formatCount(){
-        const {value} = this.state;
+        const {value} = this.props.counter;
         return value === 0 ? "zero" : value;
     };
 
