@@ -15,6 +15,28 @@ class App extends Component {
     ]
 };
 
+// Hooks in java script has three phases mount, updating and unmount.
+// Now to mount using - constructor 
+constructor() { // constructor mounting
+  super();
+  console.log("App - Constructor");
+
+
+}
+
+componentDidMount(){
+  // Ajax calls or any rendering can be renderedd 
+
+}
+
+componentDidUpdate(){
+
+}
+
+componentWillUnmount(){
+
+}
+
 // handling of counters as a controlled component when event is raised.
 handleIncrement = counter => { 
   const counters = [...this.state.counters];
@@ -24,6 +46,15 @@ handleIncrement = counter => {
   this.setState({counters});
   console.log(this.state.counters[0]);
 };
+
+handleDecrement = counter => {
+  const counters = [...this.state.counters];
+  const index = counters.indexOf(counter);
+  counters[index] = {...counter};
+  counters[index].value--;
+  this.setState({counters});
+  console.log(this.state.counters[0]);
+}
 
 
 // function module to handle deleting of counter
@@ -51,6 +82,7 @@ handleReset = () => {
         counters={this.state.counters}
           onReset ={this.handleReset}
           onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
           onDelete={this.handleDelete}
         />
       </main>

@@ -6,7 +6,7 @@ class Counters extends Component {
 
     render() { 
 
-      const{onReset, counters, onDelete, onIncrement} = this.props;  // object destructuring 
+      const{onReset, counters, onDelete, onIncrement, onDecrement} = this.props;  // object destructuring 
 
 
         return (
@@ -19,6 +19,7 @@ class Counters extends Component {
               key={counter.id} 
               onDelete={onDelete}  // calling delete function
               onIncrement={onIncrement} // calling Increment function
+              onDecrement={onDecrement}
               counter={counter} />
                 
             ))}
